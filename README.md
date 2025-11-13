@@ -107,6 +107,7 @@ Payload JSON:
 
 ### 11) Listar matrículas  
 GET /matriculas
+
 ---
 
 ## 🗄 Modelo SQL Sugerido (MySQL-like; para H2 trocar AUTO_INCREMENT por IDENTITY se necessário)
