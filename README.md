@@ -41,7 +41,7 @@ Senha: (vazia)
 
 ## 🔗 Endpoints e exemplos de requisições (URLs + JSON de exemplo)
 
-1) Criar usuário  
+### 1) Criar usuário  
 POST /usuarios  
 Payload JSON:
 {
@@ -51,13 +51,13 @@ Payload JSON:
   "nivelCarreira": "Junior"
 }
 
-2) Listar usuários  
+### 2) Listar usuários  
 GET /usuarios
 
-3) Buscar usuário por ID  
+### 3) Buscar usuário por ID  
 GET /usuarios/{id}
 
-4) Atualizar usuário  
+### 4) Atualizar usuário  
 PUT /usuarios/{id}  
 Payload JSON (exemplo):
 {
@@ -67,10 +67,10 @@ Payload JSON (exemplo):
   "nivelCarreira": "Pleno"
 }
 
-5) Deletar usuário  
+### 5) Deletar usuário  
 DELETE /usuarios/{id}
 
-6) Criar trilha  
+### 6) Criar trilha  
 POST /trilhas  
 Payload JSON:
 {
@@ -81,10 +81,10 @@ Payload JSON:
   "focoPrincipal": "IA"
 }
 
-7) Listar trilhas  
+### 7) Listar trilhas  
 GET /trilhas
 
-8) Criar competência  
+### 8) Criar competência  
 POST /competencias  
 Payload JSON:
 {
@@ -93,10 +93,10 @@ Payload JSON:
   "descricao": "Modelos supervisionados e não-supervisionados"
 }
 
-9) Relacionar trilha ↔ competência (associação)
+### 9) Relacionar trilha ↔ competência (associação)
 POST /trilhas/{idTrilha}/competencias/{idCompetencia}
 
-10) Criar matrícula  
+### 10) Criar matrícula  
 POST /matriculas  
 Payload JSON:
 {
@@ -105,7 +105,7 @@ Payload JSON:
   "status": "ATIVA"
 }
 
-11) Listar matrículas  
+### 11) Listar matrículas  
 GET /matriculas
 ---
 
