@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Upskilling 2030</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Upskilling 2030</h1>
+            </div>
+            <p class="subtitle">Preparando profissionais para o futuro do trabalho</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-button active" onclick="openTab('usuarios')">
+                <i class="fas fa-users"></i> Usuários
+            </button>
+            <button class="tab-button" onclick="openTab('trilhas')">
+                <i class="fas fa-road"></i> Trilhas
+            </button>
+            <button class="tab-button" onclick="openTab('sobre')">
+                <i class="fas fa-info-circle"></i> Sobre
+            </button>
+        </nav>
+
+        <!-- Conteúdo das Abas -->
+        <div class="tab-content">
+            <!-- Aba Usuários -->
+            <div id="usuarios" class="tab-pane active">
+                <div class="pane-header">
+                    <h2><i class="fas fa-users"></i> Gerenciar Usuários</h2>
+                    <button class="btn btn-primary" onclick="openUserModal()">
+                        <i class="fas fa-plus"></i> Novo Usuário
+                    </button>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchUser" placeholder="Buscar usuários..." onkeyup="searchUsers()">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <div class="cards-container" id="usersContainer">
+                    <!-- Cards de usuários serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Aba Trilhas -->
+            <div id="trilhas" class="tab-pane">
+                <div class="pane-header">
+                    <h2><i class="fas fa-road"></i> Trilhas de Aprendizado</h2>
+                    <button class="btn btn-primary" onclick="openTrilhaModal()">
+                        <i class="fas fa-plus"></i> Nova Trilha
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <select id="filterNivel" onchange="filterTrilhas()">
+                        <option value="">Todos os níveis</option>
+                        <option value="INICIANTE">Iniciante</option>
+                        <option value="INTERMEDIARIO">Intermediário</option>
+                        <option value="AVANCADO">Avançado</option>
+                    </select>
+                    <select id="filterFoco" onchange="filterTrilhas()">
+                        <option value="">Todos os focos</option>
+                        <option value="IA">IA</option>
+                        <option value="Dados">Dados</option>
+                        <option value="Programação">Programação</option>
+                        <option value="Soft Skills">Soft Skills</option>
+                        <option value="Green Tech">Green Tech</option>
+                    </select>
+                </div>
+
+                <div class="cards-container" id="trilhasContainer">
+                    <!-- Cards de trilhas serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Aba Sobre -->
+            <div id="sobre" class="tab-pane">
+                <div class="about-content">
+                    <div class="about-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Missão</h3>
+                        <p>Preparar profissionais para as demandas do mercado de trabalho em 2030 através de upskilling e reskilling contínuos.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Visão</h3>
+                        <p>Ser a principal plataforma de desenvolvimento profissional conectada aos ODS e às competências do futuro.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Valores</h3>
+                        <p>Educação contínua, inovação tecnológica, sustentabilidade e desenvolvimento humano.</p>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalUsers">0</div>
+                        <div class="stat-label">Usuários</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalTrilhas">0</div>
+                        <div class="stat-label">Trilhas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Competências</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Usuário -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="userModalTitle">Novo Usuário</h3>
+                <span class="close" onclick="closeUserModal()">&times;</span>
+            </div>
+            <form id="userForm" onsubmit="saveUser(event)">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="areaAtuacao">Área de Atuação</label>
+                    <input type="text" id="areaAtuacao">
+                </div>
+                <div class="form-group">
+                    <label for="nivelCarreira">Nível de Carreira</label>
+                    <select id="nivelCarreira">
+                        <option value="">Selecione...</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Pleno">Pleno</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Em transição">Em transição</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeUserModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Trilha -->
+    <div id="trilhaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="trilhaModalTitle">Nova Trilha</h3>
+                <span class="close" onclick="closeTrilhaModal()">&times;</span>
+            </div>
+            <form id="trilhaForm" onsubmit="saveTrilha(event)">
+                <input type="hidden" id="trilhaId">
+                <div class="form-group">
+                    <label for="trilhaNome">Nome *</label>
+                    <input type="text" id="trilhaNome" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nivel">Nível *</label>
+                        <select id="nivel" required>
+                            <option value="">Selecione...</option>
+                            <option value="INICIANTE">Iniciante</option>
+                            <option value="INTERMEDIARIO">Intermediário</option>
+                            <option value="AVANCADO">Avançado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargaHoraria">Carga Horária *</label>
+                        <input type="number" id="cargaHoraria" min="1" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="focoPrincipal">Foco Principal</label>
+                    <select id="focoPrincipal">
+                        <option value="">Selecione...</option>
+                        <option value="IA">IA</option>
+                        <option value="Dados">Dados</option>
+                        <option value="Programação">Programação</option>
+                        <option value="Soft Skills">Soft Skills</option>
+                        <option value="Green Tech">Green Tech</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeTrilhaModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

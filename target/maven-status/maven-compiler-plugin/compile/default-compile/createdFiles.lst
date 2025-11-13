@@ -1,0 +1,8 @@
+com\upskillplatform\model\Usuario.class
+com\upskillplatform\model\Trilha.class
+com\upskillplatform\UpskillingPlatformApplication.class
+com\upskillplatform\repository\UsuarioRepository.class
+com\upskillplatform\controller\TrilhaController.class
+com\upskillplatform\repository\TrilhaRepository.class
+com\upskillplatform\config\WebConfig.class
+com\upskillplatform\controller\UsuarioController.class
