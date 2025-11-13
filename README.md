@@ -159,7 +159,7 @@ CREATE TABLE matriculas (
     CONSTRAINT fk_matricula_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios (id),
     CONSTRAINT fk_matricula_trilha FOREIGN KEY (trilha_id) REFERENCES trilhas (id)
 );
-
+```
 
 ---
 
