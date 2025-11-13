@@ -1,0 +1,39 @@
+Grupo:
+Danilo Affonso Luz Rios - RM 554791
+Lucca Natario do Vale - RM 95688
+Thiago Feltrin Geraldes - RM 555805
+
+- Resumo da Solução -
+
+Problema Resolvido:
+ -Desenvolvemos uma plataforma de Upskilling/Reskilling para preparar profissionais para as carreiras de 2030+, atendendo à necessidade de requalificação contínua frente à transformação digital.
+
+Solução Técnica:
+ -API RESTful com Spring Boot para gestão completa de usuários e trilhas de aprendizado
+
+Backend Java com arquitetura em camadas (Controller → Service → Repository → Model)
+
+Banco H2 em memória para desenvolvimento, pronto para MySQL em produção
+
+Frontend web integrado para interface amigável
+
+Funcionalidades Principais:
+ - CRUD completo de Usuários - cadastro, edição, exclusão, listagem
+
+ -CRUD completo de Trilhas - criação e gestão de percursos de aprendizado
+
+ -API REST documentada com endpoints para /usuarios e /trilhas
+
+ -Interface web responsiva para interação fácil com o sistema
+
+Tecnologias:
+ -Java 21 + Spring Boot 3.2.0 + Spring Data JPA
+
+H2 Database + Maven
+
+Arquitetura RESTful + Frontend HTML/CSS/JS
+
+Status:
+ -Sistema totalmente funcional - criação, edição, exclusão e listagem de usuários e trilhas operando com sucesso!
+
+A plataforma está pronta para escalar e integrar com sistemas de recomendação inteligente baseados em IA para personalização das trilhas de aprendizado.
